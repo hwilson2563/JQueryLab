@@ -45,14 +45,14 @@ $(document).ready(function() {
   });
   $(".available").mouseenter(function () {
      if ($(this).hasClass("reserved")) {
-    $(this).find(".tableInfo").fadeIn("slow").css("position","absolute").css("display","block").css("opasity","1");
+    $(this).find(".tableInfo").fadeIn("slow").css("position","absolute").css("display","block");
       return;
      }
      $(this).fadeTo(400, .25);
     });
     $(".available").mouseleave(function () {
       if ($(this).hasClass("reserved")) {
-      $(this).find(".tableInfo").fadeIn("slow").css("position","absolute").css("display","none");
+      $(this).find(".tableInfo").fadeOut("slow").css("position","absolute").css("display","none");
       return;
      }
     $(this).fadeTo(400, 1); 
