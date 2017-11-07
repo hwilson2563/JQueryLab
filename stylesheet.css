@@ -15,10 +15,17 @@ body {
 	text-align: center;
 	color:#E34E45;
 	margin-bottom: 10px;
+	font-family: Rubik;
 }
 .index p {
 	text-align: center;
-	padding: 5px;
+	padding: 20px;
+	font-family: Rubik;
+	margin-top: 30px;
+
+}
+.index div {
+	margin: 10px;
 }
 .popUpForm {
 	display: none;
@@ -29,7 +36,6 @@ body {
 	box-shadow: 0px 5px 31px 1px rgba(0,0,0,0.3);
 	padding: 35px;
 	margin-top: -450px;
-	margin-left: -15px;
 	z-index:6;
 }
 .popUpForm div {
@@ -48,21 +54,21 @@ h2 {
 }
 .reservation {
 	color: #E34E45;
-	font-family: Rubik;
+	font-family:Roboto Mono;
 	font-size: 30px;
 	margin: 20px 10px;
-	z-index:6;
+	z-index:1;
+	font-weight: bold;
 }
 .tableNumber {
 	font-family:Roboto Mono;
 	color: black;
 	font-size: 20px;
 	margin: 10px;
-	z-index:6;
+	z-index:1;
 }
 .material-icons {
 	color: #CCC;
-	display: relative;
 	margin-left:95%;
 	z-index:20;
 }
@@ -102,6 +108,8 @@ button {
 	padding:50px;
 	border-radius: 10px;
 	margin-bottom: 40px;
+	font-family:Roboto Mono;
+	font-size: 20px;
 	z-index:0;
 }
 .available {
@@ -131,4 +139,19 @@ button {
 }
 .reserved:hover {
 	cursor: not-allowed;
+}
+.tableInfo {
+	display:none;
+	position: absolute;
+	line-height: 10px;
+	background-color: #ADAAAA;
+	border-radius: 10px;
+	border-style: solid;
+    border-color: black;
+    border-width: 2px;
+	margin-top:-50px;
+	margin-left: -25px;
+	text-align: left;
+	padding: 5px 5px;
+	font-size: 10px;
 }
