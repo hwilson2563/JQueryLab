@@ -3,8 +3,10 @@ $(document).ready(function() {
   var name = "";
   var phoneNumber = "";
   var partySize= "";
-  $(".available").on("click", function (event) {
+  // on click for table elements
+    $(".available").on("click", function (event) {
       if (this.innerHTML === "Free") {
+        
         return;
       }
        if ($(this).hasClass("reserved")) {
@@ -16,24 +18,27 @@ $(document).ready(function() {
       $(".tableNumber").text("Table Number: " + this.innerHTML);
       $(".available").css("z-index","-20");
       $(".index").css("display", "none");
-  });
-  $(".submitInfo").click(function(){
-    console.log(tableClass);  
-    name =$(".name").val();
-    phoneNumber = $(".phoneNumber").val();
-    partySize = $(".numberOfParty").val();
-    currentTable.target.setAttribute("name", name);
-    currentTable.target.setAttribute("phoneNumber", phoneNumber);
-    currentTable.target.setAttribute("party", partySize);
-    $(tableClass).append("<div class ='tableInfo'>"+"Name: "+ name + "<br>"+ "Phone #: "+ phoneNumber + "<br>" +"Party #: "+ partySize + "</div>");
-    $(".popUpForm").css("display","none");
-    $(".available").css("z-index","0");
-    $(".index").css("display", "flex");
-    $(".name").val("");
-    $(".phoneNumber").val("");
-    $(".numberOfParty").val(""); 
-    $(tableClass).addClass("reserved");
-  })
+    });
+  // action that will submit the input information
+  $(".submitInfo").on("click", function() { 
+      name = $(".name").val();
+      phoneNumber = $(".phoneNumber").val();
+      partySize = $(".numberOfParty").val();
+      currentTable.target.setAttribute("name", name);
+      currentTable.target.setAttribute("phoneNumber", phoneNumber);
+      currentTable.target.setAttribute("party", partySize);
+      $(tableClass).append("<div class ='tableInfo'>"+"Name: "+ name
+       + "<br>"+ "Phone #: "+ phoneNumber + "<br>" +"Party #: "+ partySize + "</div>");
+      $(".popUpForm").css("display","none");
+      $(".available").css("z-index","0");
+      $(".index").css("display", "flex");
+      $(".name").val("");
+      $(".phoneNumber").val("");
+      $(".numberOfParty").val(""); 
+      $(tableClass).addClass("reserved");
+      $(tableClass).removeClass("available");
+    });
+  // action to not submit information and go back to main display
   $(".material-icons").click(function(){
     $(".popUpForm").css("display","none");
     $(".available").css("z-index","0");
@@ -43,16 +48,27 @@ $(document).ready(function() {
     $(".phoneNumber").val("");
     $(".numberOfParty").val(""); 
   });
-  $(".available").mouseenter(function () {
+  // when cursor enters into table
+  $(".available").on("mouseenter", function () {
      if ($(this).hasClass("reserved")) {
     $(this).find(".tableInfo").fadeIn("slow").css("position","absolute").css("display","block");
       return;
      }
+     if($(this).innerHTML == "Free") {
+      console.log("hey");
+      $(".available").css("box-shadow", "1px 2px 4px rgba(255, 0, 0, .6)");
+      return;
+     }
      $(this).fadeTo(400, .25);
     });
-    $(".available").mouseleave(function () {
+  // when cursor exits table elements
+    $(".available").on("mouseleave",function () {
       if ($(this).hasClass("reserved")) {
       $(this).find(".tableInfo").fadeOut("slow").css("position","absolute").css("display","none");
+      return;
+     }
+      if($(this).innerHTML === "Free") {
+      $(".available").css("box-shadow", "unset");
       return;
      }
     $(this).fadeTo(400, 1); 
