@@ -54,11 +54,7 @@ $(document).ready(function() {
     $(this).find(".tableInfo").fadeIn("slow").css("position","absolute").css("display","block");
       return;
      }
-     if($(this).innerHTML == "Free") {
-      console.log("hey");
-      $(".available").css("box-shadow", "1px 2px 4px rgba(255, 0, 0, .6)");
-      return;
-     }
+     
      $(this).fadeTo(400, .25);
     });
   // when cursor exits table elements
@@ -67,11 +63,17 @@ $(document).ready(function() {
       $(this).find(".tableInfo").fadeOut("slow").css("position","absolute").css("display","none");
       return;
      }
-      if($(this).innerHTML === "Free") {
-      $(".available").css("box-shadow", "unset");
-      return;
-     }
+      
     $(this).fadeTo(400, 1); 
     });
+    $("#index").on("mouseenter", function() {
+      $(".available").css("box-shadow", "1px 2px 4px rgba(255, 0, 0, .6)");
+      return;
+    });
+    
+    $("#index").on("mouseleave", function() {
+      $(".available").css("box-shadow", "unset");
+      return;
+     });
 });
 
